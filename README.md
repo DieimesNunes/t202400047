@@ -40,3 +40,32 @@ if(isset($_GET["bt_nome"])) {
 - `$nota2 = $_GET["bt_nota2"];`: Atribui o valor do parâmetro bt_nota2 à variável $nota2.
 - `$nota3 = $_GET["bt_nota3"];`: Atribui o valor do parâmetro bt_nota3 à variável $nota3.
 - `$nota4 = $_GET["bt_nota4"];`: Atribui o valor do parâmetro bt_nota4 à variável $nota4.
+
+### Uso de Formulários no HTML :memo:
+
+>Os formulários HTML são essenciais para coletar dados do usuário. O exemplo a seguir mostra como configurar um formulário para enviar dados utilizando o método GET:
+
+```html
+
+<form action="" method="get">
+    <label for="">Nome do aluno:</label>
+    <input class="form-control" type="text" name="bt_nome">
+    <label for="">Nota 01:</label>
+    <input class="form-control" type="text" name="bt_nota1">
+    <label for="">Nota 02:</label>
+    <input class="form-control" type="text" name="bt_nota2">
+    <label for="">Nota 03:</label>
+    <input class="form-control" type="text" name="bt_nota3">
+    <label for="">Nota 04:</label>
+    <input class="form-control" type="text" name="bt_nota4">
+
+    <input class="btn btn-success" type="submit">
+    <input class="btn btn-danger" type="reset">
+</form>
+
+
+```
+
+- action="": Especifica a URL para onde os dados do formulário serão enviados. Um valor vazio significa que os dados serão enviados para a mesma página que o formulário está localizado.
+- method="get": Especifica que os dados do formulário serão enviados como parâmetros de URL, permitindo que sejam acessados via $_GET no PHP.
+- name="bt_nome", name="bt_nota1", etc.: Os atributos name são importantes para identificar os dados quando eles são enviados. Eles permitem que você acesse os valores no PHP usando $_GET["bt_nome"], $_GET["bt_nota1"], e assim por diante.
