@@ -18,3 +18,7 @@
     <h1><?php echo "Olá, mundo!"; ?></h1>
 </body>
 </html>
+```
+
+### Uso do if no PHP :mag:
+>A estrutura condicional if é utilizada no PHP para executar blocos de código baseados em condições específicas. No exemplo a seguir, mostramos como verificar se um botão foi clicado e obter valores passados através de parâmetros GET:
