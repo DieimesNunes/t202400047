@@ -48,17 +48,7 @@
        <?php
             if(isset ($nome)){
 
-                /*
-                echo "<hr>";
-                echo $nome;
-                echo $nota1;
-                echo $nota2;
-                echo $nota3;
-                echo $nota4;
-                echo "<hr>";
-
-                */
-
+                
                 $media = ($nota1 + $nota2 + $nota3 + $nota4)/4;
 
                 if($media>=7){
@@ -77,8 +67,7 @@
                     echo "</p>";
                 }
                
-             }
-             //var_dump($nome);
+             }            
        ?>
    
     </div>
