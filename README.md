@@ -33,3 +33,10 @@ if(isset($_GET["bt_nome"])) {
 }
 
 ```
+
+>if(isset($_GET["bt_nome"])): Verifica se o parâmetro bt_nome foi enviado via GET (ou seja, se o botão foi clicado).
+- $nome = $_GET["bt_nome"];: Atribui o valor do parâmetro bt_nome à variável $nome.
+- $nota1 = $_GET["bt_nota1"];: Atribui o valor do parâmetro bt_nota1 à variável $nota1.
+- $nota2 = $_GET["bt_nota2"];: Atribui o valor do parâmetro bt_nota2 à variável $nota2.
+- $nota3 = $_GET["bt_nota3"];: Atribui o valor do parâmetro bt_nota3 à variável $nota3.
+- $nota4 = $_GET["bt_nota4"];: Atribui o valor do parâmetro bt_nota4 à variável $nota4.
