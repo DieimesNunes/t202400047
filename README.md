@@ -22,3 +22,14 @@
 
 ### Uso do if no PHP :mag:
 >A estrutura condicional if é utilizada no PHP para executar blocos de código baseados em condições específicas. No exemplo a seguir, mostramos como verificar se um botão foi clicado e obter valores passados através de parâmetros GET:
+
+```php
+if(isset($_GET["bt_nome"])) {
+    $nome = $_GET["bt_nome"];
+    $nota1 = $_GET["bt_nota1"];
+    $nota2 = $_GET["bt_nota2"];
+    $nota3 = $_GET["bt_nota3"];
+    $nota4 = $_GET["bt_nota4"];
+}
+
+```
