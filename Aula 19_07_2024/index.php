@@ -1,3 +1,26 @@
+<?php
+
+    if(isset($_POST["bt_nome"])){
+
+        $nome = $_POST["bt_nome"];
+        $endereco = $_POST["bt_endereco"];
+
+        $eddsfdf = $_POST["estados"];
+
+        echo "Nome recebido foi " . $nome;
+        echo "</br>";
+        echo "</br>";
+        echo "Endereço recebido foi " . $endereco;
+        echo "</br>";
+        echo "</br>";
+        echo "O estado recebido foi " . $eddsfdf;
+
+    }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,10 +40,10 @@
         <form action="" method="post">
 
             <label for="">Nome:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_nome">
             <div class="mb-3">
                 <label for="">Endereço:</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name="bt_endereco">
             </div>
            
             <div class="mb-3">
@@ -44,7 +67,7 @@
                     <option value="PR">Paraná</option>
                     <option value="PE">Pernambuco</option>
                     <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
                     <option value="RN">Rio Grande do Norte</option>
                     <option value="RS">Rio Grande do Sul</option>
                     <option value="RO">Rondônia</option>
