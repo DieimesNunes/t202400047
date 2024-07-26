@@ -1,4 +1,5 @@
 <?php
+ 
 
     if(isset($_POST["bt_nome"])){
 
@@ -15,6 +16,30 @@
         echo "</br>";
         echo "O estado recebido foi " . $eddsfdf;
 
+
+        $senha = $_POST["bt_senha"];
+        $rsenha= $_POST["bt_rsenha"];
+
+       
+       
+       
+        if($senha === $rsenha){
+            /* Só vai executar os códigos abaixo
+            se for VERDADEIRO. */ 
+
+            $mensagem= "Senha válida";
+
+        }else{
+            
+            /* else é o senão */
+            /* Quando for falso executar os códigos
+            abaixo: */
+            $mensagem = "Senha inválida";
+
+        }
+        
+
+        
     }
 
 
@@ -93,16 +118,26 @@
             <input class="form-control" type="text">
 
             <label for="">Senha:</label>
-            <input class="form-control" type="password">
+            <input class="form-control" type="password" name="bt_senha" required>
 
             <div class="mb-3">
                 <label for="">Repetir Senha:</label>
-                <input class="form-control" type="password">
+                <input class="form-control" type="password" name="bt_rsenha" required>
             </div>
             
 
             <input class="btn btn-success" type="submit" value="Cadastrar">
             <input class="btn btn-danger" type="reset" value="Voltar">
+
+            <?php
+
+                if(isset($mensagem)){
+                    echo $mensagem;
+                }
+               
+            ?>
+
+
         </form>
     </div>
     
