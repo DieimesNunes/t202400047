@@ -1,3 +1,42 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    
+
+
+    if(isset($_POST['bt_senha'])){
+        $senha = $_POST['bt_senha'];
+        $rsenha = $_POST['bt_rsenha']; 
+
+        $_SESSION["nome"] = $_POST['bt_nome'];
+    }
+    
+    
+    if (isset($senha)){
+
+        if($senha === $rsenha){
+            /* Só vai executar os códigos abaixo
+            se for VERDADEIRO. */ 
+    
+            $mensagem= "<div  class='alert alert-success mt-3'> Senha válida </div>";
+            
+            header("Location:banco.php"); /* Mudar de página */
+            
+    
+        }else{
+            
+            /* else é o senão */
+            /* Quando for falso executar os códigos
+            abaixo: */
+            $mensagem = "<div class='alert alert-danger mt-3'> Senha inválida </div>";
+    
+        }
+    }
+    
+   
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,10 +56,10 @@
         <form action="" method="post">
 
             <label for="">Nome:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_nome">
             <div class="mb-3">
                 <label for="">Endereço:</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name="bt_endereco">
             </div>
            
             <div class="mb-3">
@@ -44,7 +83,7 @@
                     <option value="PR">Paraná</option>
                     <option value="PE">Pernambuco</option>
                     <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
                     <option value="RN">Rio Grande do Norte</option>
                     <option value="RS">Rio Grande do Sul</option>
                     <option value="RO">Rondônia</option>
@@ -70,16 +109,27 @@
             <input class="form-control" type="text">
 
             <label for="">Senha:</label>
-            <input class="form-control" type="password">
+            <input class="form-control" type="password" name="bt_senha" required>
 
             <div class="mb-3">
                 <label for="">Repetir Senha:</label>
-                <input class="form-control" type="password">
+                <input class="form-control" type="password" name="bt_rsenha" required>
             </div>
             
 
             <input class="btn btn-success" type="submit" value="Cadastrar">
             <input class="btn btn-danger" type="reset" value="Voltar">
+
+            <?php
+
+                if(isset($mensagem)){
+                   
+                    echo $mensagem;
+                }
+               
+            ?>
+
+
         </form>
     </div>
     
