@@ -1,49 +1,57 @@
 <?php
- 
+    include("conexao.php");
 
-    if(isset($_POST["bt_nome"])){
-
-        $nome = $_POST["bt_nome"];
-        $endereco = $_POST["bt_endereco"];
-
-        $eddsfdf = $_POST["estados"];
-
-        echo "Nome recebido foi " . $nome;
-        echo "</br>";
-        echo "</br>";
-        echo "Endereço recebido foi " . $endereco;
-        echo "</br>";
-        echo "</br>";
-        echo "O estado recebido foi " . $eddsfdf;
-
-
-        $senha = $_POST["bt_senha"];
-        $rsenha= $_POST["bt_rsenha"];
-
-       
-       
-       
-        if($senha === $rsenha){
-            /* Só vai executar os códigos abaixo
-            se for VERDADEIRO. */ 
-
-            $mensagem= "Senha válida";
-
-        }else{
-            
-            /* else é o senão */
-            /* Quando for falso executar os códigos
-            abaixo: */
-            $mensagem = "Senha inválida";
-
-        }
-        
-
-        
+    if(!isset($_SESSION)){
+        session_start();
     }
+    
 
 
+    if(isset($_POST['bt_senha'])){
+        $senha = $_POST['bt_senha'];
+        $rsenha = $_POST['bt_rsenha']; 
 
+        $_SESSION["nome"] = $_POST['bt_nome'];
+
+        if (isset($senha)){
+            
+            if($senha === $rsenha){
+                /* Só vai executar os códigos abaixo
+                se for VERDADEIRO. */ 
+        
+                
+                $nome = $_POST['bt_nome'];
+                $endereco=$_POST['bt_endereco'];
+                $estados=$_POST['estados'];
+                $cidade = $_POST['bt_cidades'];
+                $telefone =$_POST['bt_telefone'];
+                $email =$_POST['bt_email'];
+                $cpf = $_POST['bt_cpf'];
+                $senha = $_POST['bt_senha'];
+                
+    
+                 $mysqli->query("INSERT INTO tabela_pessoas (nome, endereco, estados, cidades, telefone, email, cpf, senha) values('$nome', '$endereco', '$estados', '$cidade', '$telefone', '$email', '$cpf', '$senha')") or
+                    die($mysqlierrno);
+                
+                
+                //header("Location:banco.php"); /* Mudar de página */
+                
+        
+            }else{
+                
+                /* else é o senão */
+                /* Quando for falso executar os códigos
+                abaixo: */
+                $mensagem = "<div class='alert alert-danger mt-3'> Senha inválida </div>";
+        
+            }
+        }
+    }
+    
+    
+    
+    
+   
 ?>
 
 <!DOCTYPE html>
@@ -106,16 +114,16 @@
             
 
             <label for="">Cidade:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_cidades">
 
             <label for="">Telefone:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_telefone">
 
             <label for="">Email:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_email">
 
             <label for="">CPF:</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="bt_cpf">
 
             <label for="">Senha:</label>
             <input class="form-control" type="password" name="bt_senha" required>
@@ -132,6 +140,7 @@
             <?php
 
                 if(isset($mensagem)){
+                   
                     echo $mensagem;
                 }
                
