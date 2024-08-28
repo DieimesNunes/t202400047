@@ -26,7 +26,11 @@
             
             if(password_verify($senha, $usuario['senha'])){
     
+                $_SESSION["id_login"] = $usuario['id_login'];
                 $_SESSION["nome"] = $usuario['nome'];
+                $_SESSION["email"] = $usuario['email'];
+                $_SESSION["senha"] = $usuario['senha'];
+
                 header("Location: primeira_pagina.php"); 
             }else{
                 echo ("<script> alert('Erro de senha')</script>");
