@@ -17,21 +17,42 @@
            $senha = password_hash($_POST['bt_senha'], PASSWORD_DEFAULT);
 
            //$senha = md5($_POST['bt_senha']);
-           
-           
-           
-           
-            $mysqlierrno = "falha";
 
-            $mysqli->query("INSERT INTO tabela_login (nome, email, senha) values('$nome', '$email', '$senha')") or
-                die($mysqlierrno);
+           //num_rows
+           
+           
+           $sql = "SELECT * FROM tabela_login WHERE email =  '$email'";
+           $sql_exec = $mysqli->query($sql) or die ($mysqli->error);
 
-            header("Location:login.php");
+           var_dump( $sql_exec);
+          // $usuario = $sql_exec->fetch_assoc();
+
+           
+          
+           if($sql_exec->num_rows > 0){
+                //Tem conta, então não faça o cadastro (Exiba uma mensagem)
+                echo ("Você já tem conta"); 
+           }else{
+                 //Se não ter a conta, então faça o cadastro
+                 $mysqlierrno = "falha";
+
+                 $mysqli->query("INSERT INTO tabela_login (nome, email, senha) values('$nome', '$email', '$senha')") or
+                     die($mysqlierrno);
+ 
+                 header("Location:login.php");
+ 
+                 exit();
+
+                
+           }
+                 
+          
+           
 
         }else{
             $mensagem = "<div class='alert alert-danger mt-3'> Senha inválida </div>";
         }
-
+            
     }
 
 

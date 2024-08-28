@@ -18,10 +18,12 @@
     
             $sql_exec = $mysqli->query($sql) or die ($mysqli->error);
             $usuario = $sql_exec->fetch_assoc();
+
+            //var_dump($sql_exec );
     
            
     
-    
+            
             if(password_verify($senha, $usuario['senha'])){
     
                 $_SESSION["nome"] = $usuario['nome'];
@@ -29,7 +31,11 @@
             }else{
                 echo ("<script> alert('Erro de senha')</script>");
             }
+
+            
+
         }
+            
     }
 
     
