@@ -30,8 +30,8 @@
                 $senha = $_POST['bt_senha'];
                 
     
-                 $mysqli->query("INSERT INTO tabela_pessoas (nome, endereco, estados, cidades, telefone, email, cpf, senha) values('$nome', '$endereco', '$estados', '$cidade', '$telefone', '$email', '$cpf', '$senha')") or
-                    die($mysqlierrno);
+                $mysqli->query("INSERT INTO tabela_pessoas (nome, endereco, estados, cidades, telefone, email, cpf, senha) values('$nome', '$endereco', '$estados', '$cidade', '$telefone', '$email', '$cpf', '$senha')") or
+                die($mysqlierrno);
                 
                 
                 //header("Location:banco.php"); /* Mudar de página */
